@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Reservation Form</title>
+    <script>
+        function validateForm() {
+            let name = document.forms["reservationForm"]["name"].value;
+            let email = document.forms["reservationForm"]["email"].value;
+            let phone = document.forms["reservationForm"]["phone"].value;
+            let date = document.forms["reservationForm"]["date"].value;
+            let seat = document.forms["reservationForm"]["seat"].value;
+
+            if (name === "" || email === "" || phone === "" || date === "" || seat === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            alert("Your ticket info will be forwarded to your email.")
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Bus Seat Reservation Form</h2>
+    <form name="reservationForm" onsubmit="return validateForm()" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone"><br><br>
+        
+        <label for="date">Reservation Date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+        
+        <label for="seat">Seat Number:</label><br>
+        <input type="text" id="seat" name="seat"><br><br>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>

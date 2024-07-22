@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+</head>
+<body>
+    <input type="text" id="username" name="username" value="Enter your username">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <p id="cookieValue"></p>
+
+    <script>
+        function setCookie() {
+            const user = document.getElementById("username").value;
+            document.cookie = `username=${user}; path=/`;
+            alert("Cookie has been set!");
+        }
+
+        function getCookie() {
+            const cookieArr = document.cookie.split("; ");
+            for (let i = 0; i < cookieArr.length; i++) {
+                const cookiePair = cookieArr[i].split("=");
+                if (cookiePair[0] === "username") {
+                    document.getElementById("cookieValue").innerText = "Cookie value: " + cookiePair[1];
+                    return;
+                }
+            }
+            document.getElementById("cookieValue").innerText = "No cookie found";
+        }
+    </script>
+</body>
+</html>
